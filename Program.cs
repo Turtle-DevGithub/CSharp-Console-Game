@@ -25,7 +25,7 @@ __          __  _
       ");
       string act = Console.ReadLine();
       if (act == "1") {
-          Console.WriteLine("Not Made Yet");
+          d1();
       } else if (act == "2") {
           htp();
       } else {
@@ -62,6 +62,23 @@ __          __  _
             Console.WriteLine("Command not found");
             htp();
         }
+       }
+       static void d1() {
+           Console.Clear();
+           Console.WriteLine("As you slowly wake up from a dark cave, you have many thoughts");
+           System.Threading.Thread.Sleep(2300);
+           Console.WriteLine("You think to yourself, 'Where am I? What is this?' When in reality this is the start of your new adventure, and the start of a poorly scripted game by a man who claims to be a turtle");
+           System.Threading.Thread.Sleep(4000);
+           Console.WriteLine(@"Continue?(1) (You don't have an option)");
+           string act = Console.ReadLine();
+
+           if (act == "1") {
+               Console.Clear();
+               Console.WriteLine("Game not fully built.");
+           } else {
+               Console.Clear();
+               Console.WriteLine(@"I told you that you didn't have any other option, so why did you type something other than the option provided? You are now stuck in the dark abbis forever(Or untill you restart the program)");
+           }
        }
    }
 }
