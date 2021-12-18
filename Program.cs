@@ -139,13 +139,59 @@ Enter ominous hut(1)
              Exit hut(1)");
              string act2 = Console.ReadLine(); 
              if (act2 == "1") {
-                 Console.Clear();
-                 Console.WriteLine("Game not fully built");
+                 d4();
              }
            } else {
                d3();
            }
 
+}
+static void d4() {
+    Console.Clear();
+    Console.WriteLine("You quickly exit the hut with your new sword");
+    System.Threading.Thread.Sleep(4000);
+    Console.Clear();
+    Console.WriteLine(@"
+    ___________________________________________________________________________________________________________________________________
+|                                                      |                          |                                                |
+|                                                      |             |            |                                                |
+|               ______                                 |                          |                                                |
+|              /  __  \       <-- you are here         |             |            |                                                |
+|              |_|  |_|                                |                          |                                                |
+|                                                      |             |            |                                                |
+|                                                      |                          |                                                |
+|                                                      |             |            |                                                |
+|                                                      |                          |                                                |
+|                                                      |             |            |                                                |
+|                                                      |                          |                                       _________|
+|                                                      |             |            |                          ___________ |         |
+|                                                      |                          |                         |                      |
+|                                                      |             |            |                  ______|                       |
+|                                                      |                          |                  |                             |
+|                                                      |             |            |               __|                              |      
+|_______________________________________________________________________________________________ |_________________________________| 
+
+Go up big road(1)
+Retreat to cave(2)");
+string act = Console.ReadLine();
+if (act == "1") {
+    d5();
+} else if (act == "2") {
+    Console.Clear();
+    Console.WriteLine(@"Just the thought that someone will go out of their way to not make progress in the game
+
+    Go up big road(1)");
+    string act2 = Console.ReadLine();
+    if (act2 == "1") {
+        d5();
+    } else {
+        d4();
+    }
+}
+}
+static void d5() {
+    Console.Clear();
+    Console.WriteLine("Game not fully built");
 }
 
        
