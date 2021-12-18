@@ -1,0 +1,15 @@
+/home/turtle_dev/Dev/CSharp/Game/bin/Debug/net6.0/Game
+/home/turtle_dev/Dev/CSharp/Game/bin/Debug/net6.0/Game.deps.json
+/home/turtle_dev/Dev/CSharp/Game/bin/Debug/net6.0/Game.runtimeconfig.json
+/home/turtle_dev/Dev/CSharp/Game/bin/Debug/net6.0/Game.dll
+/home/turtle_dev/Dev/CSharp/Game/bin/Debug/net6.0/ref/Game.dll
+/home/turtle_dev/Dev/CSharp/Game/bin/Debug/net6.0/Game.pdb
+/home/turtle_dev/Dev/CSharp/Game/obj/Debug/net6.0/Game.csproj.AssemblyReference.cache
+/home/turtle_dev/Dev/CSharp/Game/obj/Debug/net6.0/Game.GeneratedMSBuildEditorConfig.editorconfig
+/home/turtle_dev/Dev/CSharp/Game/obj/Debug/net6.0/Game.AssemblyInfoInputs.cache
+/home/turtle_dev/Dev/CSharp/Game/obj/Debug/net6.0/Game.AssemblyInfo.cs
+/home/turtle_dev/Dev/CSharp/Game/obj/Debug/net6.0/Game.csproj.CoreCompileInputs.cache
+/home/turtle_dev/Dev/CSharp/Game/obj/Debug/net6.0/Game.dll
+/home/turtle_dev/Dev/CSharp/Game/obj/Debug/net6.0/ref/Game.dll
+/home/turtle_dev/Dev/CSharp/Game/obj/Debug/net6.0/Game.pdb
+/home/turtle_dev/Dev/CSharp/Game/obj/Debug/net6.0/Game.genruntimeconfig.cache
