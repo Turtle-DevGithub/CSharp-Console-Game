@@ -8,8 +8,6 @@ namespace ConsoleGame
        public static void Main(string[] args)
        {
        Start();
-     
-       }
        static void Start() {
            Console.Clear();
                Console.WriteLine(@"
@@ -73,13 +71,85 @@ __          __  _
            string act = Console.ReadLine();
 
            if (act == "1") {
-               Console.Clear();
-               Console.WriteLine("Game not fully built.");
+               d2();
            } else {
                Console.Clear();
-               Console.WriteLine(@"I told you that you didn't have any other option, so why did you type something other than the option provided? You are now stuck in the dark abbis forever(Or untill you restart the program)");
+               Console.WriteLine(@"I told you that you didn't have any other option, so why did you type something other than the option provided? You are now stuck in the dark abis forever(Or untill you restart the program)");
            }
        }
+       static void d2() {
+           Console.Clear();
+           Console.WriteLine(@"
+           You wake up inside the cave and you have two options 
+
+           Leave Cave(1)
+           Stay in cave(2)");
+           string act = Console.ReadLine();
+           if (act == "1") {
+               d3();
+           } else if (act == "2") {
+               Console.Clear();
+               Console.WriteLine(@"
+               Why did you stay inside the cave, do you just not want to make progress in the game?
+
+               Leave Cave (1)");
+               act = Console.ReadLine();
+               if (act == "1") {
+                   d3();
+               } else {
+                   d2();
+               }
+
+           }
+       }
+       static void d3() {
+           Console.Clear();
+           Console.WriteLine(@"
+           
+___________________________________________________________________________________________________________________________________
+|                                                      |                          |                                                |
+|                                                      |             |            |                                                |
+|               ______                                 |                          |                                                |
+|              /  __  \                                |             |            |                                                |
+|              |_|  |_|                                |                          |                                                |
+|                                                      |             |            |                                                |
+|                                                      |                          |                                                |
+|                                                      |             |            |                                                |
+|                                                      |                          |                                                |
+|                                                      |             |            |                                                |
+|                                                      |                          |                                       _________|
+|                                                      |             |            |                          ___________ |         |
+|                                                      |                          |                         |                      |
+|                                                      |             |            |                  ______|                       |
+|                                                      |                          |                  |        <--  you are here    |
+|                                                      |             |            |               __|                              |      
+|_______________________________________________________________________________________________ |_________________________________|                           
+
+
+Enter ominous hut(1)  
+           ");
+           string act = Console.ReadLine();
+           if (act == "1") {
+               Console.Clear();
+             Console.WriteLine(@"
+             As you slowly creep into the hut you see and old man and he tells you 'It is dangerous to go alone! Take this.'
+             You see him slowly  hand you a sharp sword 
+             You can now use the sword to attack enemies!
+             
+             Exit hut(1)");
+             string act2 = Console.ReadLine(); 
+             if (act2 == "1") {
+                 Console.Clear();
+                 Console.WriteLine("Game not fully built");
+             }
+           } else {
+               d3();
+           }
+
+}
+
+       
+   }
    }
 }
 
