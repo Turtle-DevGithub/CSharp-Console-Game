@@ -1,5 +1,5 @@
 ﻿using System;
- 
+using System.Threading;
  
 namespace ConsoleGame
 {
@@ -213,10 +213,10 @@ ________________________________________________________________________________
 |                                                      |             |            |                                                |      
 |_________________________________________________You_Are_Here_-->_________________________________________________________________|   
     ");
-    System.Threading.Thread.Sleep(6000);
+    Thread.Sleep(6000);
     Console.Clear();
     Console.WriteLine("As you stand there, looking at the creature in awe, It jumps at you! (battle initiated)");
-    System.Threading.Thread.Sleep(4000);
+    Thread.Sleep(4000);
     Console.Clear();
     Console.WriteLine(@"
     ____________________________________________________
@@ -233,9 +233,7 @@ ________________________________________________________________________________
     ");
     string act = Console.ReadLine();
     if (act == "1") {
-        Console.Clear();
-        Console.WriteLine(@"You beat the enemy!
-        Game not fully built yet");
+      d6(); 
     } else if (act == "2") {
         Console.Clear();
         Console.WriteLine(@"
@@ -288,7 +286,90 @@ ________________________________________________________________________________
         d5();
     }
 }
+static void d6() {
+    Console.Clear();
+    Console.WriteLine(@"You beat the enemy!");
+    Thread.Sleep(5000);
+    Console.Clear();
+    Console.WriteLine(@"
+    ___________________________________________________________________________________________________________________________________
+|                                                                                                                                  |
+|                                                       ==========================                                                 |
+|               ______                                 |                          |        _____                                   |
+|              /  __  \           _____                |             |            |       /  _  \                                  |
+|              |_|  |_|          /     \               |                          |       | | | |                                  |
+|                                |  _  |               |             |            |                                                |
+|                  _____         | | | |               |                  (' ')   |                                                |
+|                 /  _  \                              |             |            |                                                |
+|                 |_| |_|                              |                          |                    _____                       |
+|                  __________                          |             |            |                   /  _  \                      |
+|                 /    __    \                         |                          |                   | | | |                      |
+|                 |___|  |___|                         |             |            |                                                |
+|                                                      |                          |                                                |
+|                                                      |             |            |                                                |
+|                                                      | You Are here-->          |                                                |
+|                                                      |             |            |                                                |      
+|______________________________________________________|__________________________|________________________________________________|");
+Thread.Sleep(6000);
+Console.Clear();
+Console.WriteLine(@"
+Skip Cutscene(1)
+Watch Cutscene(2)
+");
+string act = Console.ReadLine();
+if (act == "1") {
+    d8();
+} else {
+    Console.Clear();
+   Console.WriteLine("You see an old man in the distance");
+Thread.Sleep(1500);
+Console.WriteLine("He slowly walks toward you and he begins to explain...");
+Thread.Sleep(2000);
+Console.Clear();
+Console.WriteLine("Ah, I see you have awakened from your slumber");
+Thread.Sleep(2000);
+Console.WriteLine("You seem comfused there, let me fill you in");
+Thread.Sleep(2000);
+Console.WriteLine("You have been asleep for 20 years");
+Thread.Sleep(3000);
+Console.WriteLine("'What?' you say, very confused 'First of all, I don't even know who you ar-");
+Thread.Sleep(3000);
+Console.WriteLine("My name is sir Jean Boucicaut, your name is Luis Bourbon previous king of this land");
+Thread.Sleep(2000);
+Console.WriteLine("You've got to be kidding me, King of this old town. Stop wasting my ti-");
+Thread.Sleep(2000);
+Console.WriteLine("He hands you what looks to be an old sheild with a large red bird on it");
+Thread.Sleep(1000);
+Console.WriteLine("This was your old sheild from when you used to be king, now do you trust me?");
+Thread.Sleep(5000);
+Console.WriteLine("Ok, I trust you, what do you have to tell me");
+Thread.Sleep(2300);
+d7(); 
+}
 
+}
+static void d7() {
+    Console.Clear();
+    Console.WriteLine("This used to be a fruitful town, with lush gardens, happy people, and you were in charge ");
+    Thread.Sleep(4000);
+    Console.WriteLine("You had five knights, all of which followed your every command");
+    Thread.Sleep(3000);
+    Console.WriteLine("But one of them got very greedy, he thought to himself, 'I hate being a knight, I always get put in the king's shadow!'");
+    Thread.Sleep(5000);
+    Console.Clear();
+    Console.WriteLine("So he poisoned all of the knights into an eternal slumber, and banashed you into a dark cave and made you drink a special fluid, that made you go to sleep");
+    Thread.Sleep(4000);
+    Console.WriteLine("Nobody knew what had happened, but they decided to make the evil knight the king, as he was the last one with power");
+    Thread.Sleep(5000);
+    Console.WriteLine("The evil night became the dictator of the land and he made everyone his slave!");
+    Thread.Sleep(3000);
+    Console.WriteLine("Now, 20 years later you have awakened and you need to overtrown this dictator!");
+    Thread.Sleep(4000); 
+    Console.WriteLine("Hurry! Hurry! awaken your previous knights and overthrow this dictator!");
+}
+static void d8() {
+
+}
        
    }
    }
