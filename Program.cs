@@ -191,7 +191,102 @@ if (act == "1") {
 }
 static void d5() {
     Console.Clear();
-    Console.WriteLine("Game not fully built");
+    Console.WriteLine("You start to walk forwards, you see something in the distance...");
+    System.Threading.Thread.Sleep(4000);
+    Console.WriteLine(@"
+___________________________________________________________________________________________________________________________________
+|                                                                                                                                  |
+|                                                       ==========================                                                 |
+|               ______                                 |                          |        _____                                   |
+|              /  __  \           _____                |             |            |       /  _  \                                  |
+|              |_|  |_|          /     \               |                          |       | | | |                                  |
+|                                |  _  |               |             |            |                                                |
+|                  _____         | | | |               |                          |                                                |
+|                 /  _  \                              |             |            |                                                |
+|                 |_| |_|                              |                          |                    _____                       |
+|                  __________                          |             |            |                   /  _  \                      |
+|                 /    __    \                         |                          |                   | | | |                      |
+|                 |___|  |___|                         |             |            |                                                |
+|                                                      |                          |                                                |
+|                                                      |             |            |                                                |
+|                                                      |            (*-*)         |                                                |
+|                                                      |             |            |                                                |      
+|_________________________________________________You_Are_Here_-->_________________________________________________________________|   
+    ");
+    System.Threading.Thread.Sleep(6000);
+    Console.Clear();
+    Console.WriteLine("As you stand there, looking at the creature in awe, It jumps at you! (battle initiated)");
+    System.Threading.Thread.Sleep(4000);
+    Console.Clear();
+    Console.WriteLine(@"
+    ____________________________________________________
+   |  hp(100/100)         enemy hp(50/50)               |
+   |                                                    |
+   |           ___                                      |
+   |          ('-')              (*-*)                  |
+   |          --|--                                     |   
+   |            |                                       | 
+   |___________/_\______________________________________| 
+   |                       Moves:                       |
+   |  1.Hit with sword     3.Try to pet it              |              
+   |__2.Stand_Still________4.Jump_at_it_________________| 
+    ");
+    string act = Console.ReadLine();
+    if (act == "1") {
+        Console.Clear();
+        Console.WriteLine(@"You beat the enemy!
+        Game not fully built yet");
+    } else if (act == "2") {
+        Console.Clear();
+        Console.WriteLine(@"
+ __     __               _ _          _       
+ \ \   / /              | (_)        | |      
+  \ \_/ /__  _   _    __| |_  ___  __| |      
+   \   / _ \| | | |  / _` | |/ _ \/ _` |      
+    | | (_) | |_| | | (_| | |  __/ (_| |_ _ _ 
+    |_|\___/ \__,_|  \__,_|_|\___|\__,_(_|_|_)
+
+    The furrball charged at you, and bit you in the face
+
+    Continue from last save(1)
+                                              ");
+        string act2 = Console.ReadLine();
+        d5();                                      
+    } else if (act == "3") {
+        Console.Clear();
+        Console.WriteLine(@"
+ __     __               _ _          _       
+ \ \   / /              | (_)        | |      
+  \ \_/ /__  _   _    __| |_  ___  __| |      
+   \   / _ \| | | |  / _` | |/ _ \/ _` |      
+    | | (_) | |_| | | (_| | |  __/ (_| |_ _ _ 
+    |_|\___/ \__,_|  \__,_|_|\___|\__,_(_|_|_)
+
+    You tried to pet the furrball, but it bit you in the testicles
+
+    Continue from last save(1)
+                                              ");
+        string act3 = Console.ReadLine();
+        d5();                                      
+    } else if (act == "4") {
+        Console.Clear();
+        Console.WriteLine(@"
+ __     __               _ _          _       
+ \ \   / /              | (_)        | |      
+  \ \_/ /__  _   _    __| |_  ___  __| |      
+   \   / _ \| | | |  / _` | |/ _ \/ _` |      
+    | | (_) | |_| | | (_| | |  __/ (_| |_ _ _ 
+    |_|\___/ \__,_|  \__,_|_|\___|\__,_(_|_|_)
+
+    You jumped at it doing 3 damage, but it bit you in the eye
+
+    Continue from last save(1)
+                                              ");
+        string act4 = Console.ReadLine();
+        d5();                                      
+    } else {
+        d5();
+    }
 }
 
        
