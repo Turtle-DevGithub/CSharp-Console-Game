@@ -67,12 +67,15 @@ __          __  _
            System.Threading.Thread.Sleep(2300);
            Console.WriteLine("You think to yourself, 'Where am I? What is this?' When in reality this is the start of your new adventure, and the start of a poorly scripted game by a man who claims to be a turtle");
            System.Threading.Thread.Sleep(4000);
-           Console.WriteLine(@"Continue?(1) (You don't have an option)");
+           Console.WriteLine(@"Continue?(1) (You don't have an option");
            string act = Console.ReadLine();
 
            if (act == "1") {
                d2();
-           } else {
+           } else if (act == "10") {
+               d10();
+           } 
+           else {
                Console.Clear();
                Console.WriteLine(@"I told you that you didn't have any other option, so why did you type something other than the option provided? You are now stuck in the dark abis forever(Or untill you restart the program)");
            }
@@ -292,7 +295,7 @@ static void d6() {
     Thread.Sleep(5000);
     Console.Clear();
     Console.WriteLine(@"
-    ___________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________
 |                                                                                                                                  |
 |                                                       ==========================                                                 |
 |               ______                                 |                          |        _____                                   |
@@ -366,12 +369,273 @@ static void d7() {
     Console.WriteLine("Now, 20 years later you have awakened and you need to overtrown this dictator!");
     Thread.Sleep(4000); 
     Console.WriteLine("Hurry! Hurry! awaken your previous knights and overthrow this dictator!");
+    Thread.Sleep(4000);
+    d8();
 }
 static void d8() {
+Console.Clear();
+Console.WriteLine(@"
+  _______ _              _                                     _                _                 
+ |__   __| |            (_)                                   | |              (_)                
+    | |  | |__   ___     _  ___  _   _ _ __ _ __   ___ _   _  | |__   ___  __ _ _ _ __  ___       
+    | |  | '_ \ / _ \   | |/ _ \| | | | '__| '_ \ / _ \ | | | | '_ \ / _ \/ _` | | '_ \/ __|      
+    | |  | | | |  __/   | | (_) | |_| | |  | | | |  __/ |_| | | |_) |  __/ (_| | | | | \__ \_ _ _ 
+    |_|  |_| |_|\___|   | |\___/ \__,_|_|  |_| |_|\___|\__, | |_.__/ \___|\__, |_|_| |_|___(_|_|_)
+                       _/ |                             __/ |              __/ |                  
+                      |__/                             |___/              |___/             
+
+ You have been tasked by an old man to find your knights and defeat the dictator!
+
+ P.S. If you quit within the game, you lose all progress, so keep the game open if you need to take brakes
+
+ Continue(1)
+ Exit(2)                     
+                        ");
+   string act = Console.ReadLine();
+   if (act == "1") {
+       d9();
+   } else if (act == "2") {
+
+   } else {
+       d9();
+   }                   
 
 }
-       
-   }
-   }
+ static void d9() {
+Console.WriteLine(@"
+___________________________________________________________________________________________________________________________________
+|                                                                                                                                  |
+|                                                       ==========================                                                 |
+|               ______                                 |                          |        _____                                   |
+|              /  __  \           _____                |             |            |       /  _  \                                  |
+|              |_|  |_|          /     \               |                          |       | | | |                                  |
+|                                |  _  |               |             |            |                                                |
+|                  _____         | | | |               |                          |                                                |
+|                 /  _  \                              |             |            |                                                |
+|                 |_| |_|                              |                          |                    _____                       |
+|                  __________                          |             |            |                   /  _  \                      |
+|                 /    __    \                         |                          |                   | | | |                      |
+|                 |___|  |___|                         |             |            |                                                |
+|                                                      |                          |                                                |
+|                                                      |             |            |                                                |
+|                                                      |                          |                                                |
+|                                                      |             |            |                                                |      
+|______________________________________________________|__________________________|________________________________________________|");
+Thread.Sleep(1000);
+Console.WriteLine("You stand there confused, but because of the creep you are, you decide to go to one of the houses");
+Thread.Sleep(2300);
+Console.Clear();
+Console.WriteLine("you walk inside one of the houses, only to find that there is nobody inside, but there is a large hole in the ground");
+Thread.Sleep(4000);
+Console.WriteLine("You decide that the next logical step is to jump inside the hole");
+Thread.Sleep(2000);
+Console.WriteLine("When you jump in the whole, you land in water, but you look forward to see a large cavern in front of you");
+d10();
+ }
+ static void d10() {
+     Console.Clear();
+     Console.WriteLine(@"
+___________________________________________________________________________________________________________________________________
+|                         |  (1)   |                                                                                               |
+|                         |        |                                                                                               |
+|                         |        |                                                                                               |
+|                         |        |                                                                                               |
+|_________________________|        |_______________________________________                                                        |
+|                                                                         |                                                        |
+|                                                                     (3) |                                                        |
+|______________________________________________        ___________________|                                                        |
+|                                             |       |                                                                            |
+|                                             |       |                                                                            |
+|                                             |       |                                                                            |
+|                                             |       |                                                                            |
+|                                             |       |                                                                            |
+|                                             |       |                                                                            |
+|                                             |       |                                                                            |
+|                                             |       |                                                                            |      
+|_____________________________________________|__(2)__|____________________________________________________________________________|
+
+Choose which tunnel you want to go through");
+string act = Console.ReadLine();
+if (act == "1") {
+    d10_1();
+} else if (act == "2") {
+    d10_2();
+} else if (act == "3") {
+    d10_3();
+} else {
+    d10();
 }
+ 
+ } static void d10_1() {
+     Console.Clear();
+     int hp = 100;
+     int enemyhp = 75;
+    Console.WriteLine("As you slowly walk into the first tunnel you see a dark shadow in the corner of a dark room (Batte initated)");
+    Thread.Sleep(2300);
+    do {
+        Console.Clear();
+     Console.WriteLine($@"
+    ____________________________________________________
+   |  hp({hp}/100)         enemy hp({enemyhp}/75)               |
+   |                                                    |
+   |           ___                                      |
+   |          ('-')              (.-.)                  |
+   |          --|--                                     |   
+   |            |                                       | 
+   |___________/_\______________________________________| 
+   |                       Moves:                       |
+   |  1.Hit with sword     2.Stand still                |              
+   |____________________________________________________| 
+     ");
+     string act = Console.ReadLine();
+     if (act == "1") {
+         Console.Clear();
+         Console.WriteLine("You succesfully hit a head with a sword! it did 30 damage...");
+         Thread.Sleep(2300);
+         enemyhp -= 20;
+         Console.Clear();
+         Console.WriteLine("The head hit you doing 15 damage!");
+         Thread.Sleep(2300);
+         hp -= 15;
+         Console.Clear();
+     } else if (act == "2") {
+         Console.Clear();
+         
+         Console.WriteLine("ok buddy, that thing hit you in the head, dealing 30 damage due to a critical hit, what did you expect");
+         Thread.Sleep(2300);
+         hp -= 30;
+     }
+    } while (hp > 0 && enemyhp > 0);
+    if (hp > 0) {
+       Console.WriteLine(@"
+    You killed the- watever it is!
+    Go back(1)"); 
+    } else {
+        Console.WriteLine(@"
+ __     __               _ _          _       
+ \ \   / /              | (_)        | |      
+  \ \_/ /__  _   _    __| |_  ___  __| |      
+   \   / _ \| | | |  / _` | |/ _ \/ _` |      
+    | | (_) | |_| | | (_| | |  __/ (_| |_ _ _ 
+    |_|\___/ \__,_|  \__,_|_|\___|\__,_(_|_|_)
+
+    how did you die? this is so easy man, what it wrong with you
+
+    Go back to last battle(1)
+");
+string asoihdpaopihfpoiusdhfpaosiduhfpoaisdhfpoaishdfpioajsdfpoiajsdpfoijasdpofi = Console.ReadLine();
+d10_1();
+    }
+    
+    string act2 = Console.ReadLine();
+    d10();
+ } static void d10_2() {
+     Console.Clear();
+     int hp = 100;
+     int enemyhp = 100;
+     Console.WriteLine("You go to the second tunnel and see something in the corner of a dark room (Battle Initiated!)");
+     Thread.Sleep(2300);
+         string attack1 = "Hit with sword";
+         int phase = 1;
+     do {
+         Console.Clear();
+         Console.WriteLine(@$"
+    ____________________________________________________
+   |  hp({hp}/100)         enemy hp({enemyhp}/100)               |
+   |                                                    |
+   |           ___                                      |
+   |          ('-')              (-_-)                  |
+   |          --|--                                     |   
+   |            |                                       | 
+   |___________/_\______________________________________| 
+   |                       Moves:                       |
+   |  1.{attack1}     2.Punch                      |              
+   |____________________________________________________| ");
+   string act = Console.ReadLine();
+   if (phase == 1 && act == "1") {
+       Console.Clear();
+       Console.WriteLine(@"
+       You hit the ball thing with your sword doing 25 damage!
+       But sadly you sword broke(You'll get it back after the battle)");
+       Thread.Sleep(2300);
+       Console.Clear();
+       Console.WriteLine("It hit you back dealing 30 damage");
+       phase++;
+       attack1 = "Kick";
+       hp -= 30;
+       enemyhp -= 25;
+       Thread.Sleep(5000);
+   } else if (phase == 2 && act == "1") {
+       Console.Clear();
+       Console.WriteLine(@"
+       You kicked the furry doing 10 damage");
+       Thread.Sleep(2300);
+       Console.Clear();
+       Console.WriteLine("It hit you back dealing 20 damage!");
+       hp -= 20;
+       enemyhp -= 10;
+   } else {
+       Console.Clear();
+       Console.WriteLine(@"
+       You punched the furry doing 20 damage!");
+       Thread.Sleep(2300);
+       Console.WriteLine("It hit you back dealing 15 damage!");
+       hp -= 15;
+       enemyhp -= 20;
+       Thread.Sleep(5000);
+   }
+     }while (hp > 0 && enemyhp > 0);
+     if (hp > 0) {
+         Console.WriteLine(@"
+         You beat the furry!
+         
+    
+         Leave Cave(1)");
+     } else {
+         Console.WriteLine(@"
+__     __               _ _          _       
+ \ \   / /              | (_)        | |      
+  \ \_/ /__  _   _    __| |_  ___  __| |      
+   \   / _ \| | | |  / _` | |/ _ \/ _` |      
+    | | (_) | |_| | | (_| | |  __/ (_| |_ _ _ 
+    |_|\___/ \__,_|  \__,_|_|\___|\__,_(_|_|_)
+
+    You died to a virtual circle, good for you
+
+    Go back to last battle(1)");
+    string act = Console.ReadLine();
+    d10_2();
+     }
+ } static void d10_3() {
+     Console.Clear();
+     Console.WriteLine("ah at last you have come here says a voice in the corner");
+     Thread.Sleep(2300);
+     Console.WriteLine("You four loyal nights are right there to my side, but legend says that only the true king can ressurect them");
+     Thread.Sleep(5000);
+     Console.Clear();
+     Console.WriteLine("Go there, put your hand on their chest and focus all of your energy to your hand");
+     Thread.Sleep(3000);
+     Console.WriteLine("You repeat this process for all four of the nights and they all wake up.");
+     Thread.Sleep(2300);
+     Console.WriteLine("Now you can leave this cave, and go and fight this tyrant that has been ruling our town for far too long!");
+     Thread.Sleep(5000);
+     Console.Clear();
+     Console.WriteLine(@"
+     I highly advise for you to go back and visit any rooms you haven't been to 
+     
+     Leave tavern(1)
+     Go back to rooms(2)");
+     string act = Console.ReadLine();
+     if (act == "1") {
+         d11();
+     } else {
+         d10();
+     }
+ }
+ static void d11() {
+     Console.Clear();
+ }
+ } 
+   }
+   }
 
