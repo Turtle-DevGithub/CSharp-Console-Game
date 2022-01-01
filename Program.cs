@@ -74,7 +74,9 @@ __          __  _
                d2();
            } else if (act == "10") {
                d10();
-           } 
+           } else if (act == "11") {
+               d11();
+           }
            else {
                Console.Clear();
                Console.WriteLine(@"I told you that you didn't have any other option, so why did you type something other than the option provided? You are now stuck in the dark abis forever(Or untill you restart the program)");
@@ -634,8 +636,183 @@ __     __               _ _          _
  }
  static void d11() {
      Console.Clear();
+     Console.WriteLine(@"
+___________________________________________________________________________________________________________________________________
+|                                                                                                                                  |
+|                                                       ==========================                                                 |
+|               ______                                 |                          |        _____                                   |
+|              /  __  \           _____                |             |            |       /  _  \                                  |
+|              |_|  |_|          /     \               |                          |       | | | |                                  |
+|                                |  _  |               |             |            |                                                |
+|                  _____         | | | |               |                          |                                                |
+|                 /  _  \                              |             |            |                                                |
+|                 |_| |_|                              |                          |                    _____                       |
+|                  __________                          |             |            |                   /  _  \                      |
+|                 /    __    \                         |                          |                   | | | |                      |
+|                 |___|  |___|                         |             |            |                                                |
+|                                                      |                          |                                                |
+|                                                      |             |            |                                                |
+|                                                      |                          |                                                |
+|                                                      |             |            |                                                |      
+|______________________________________________________|__________________________|________________________________________________|
+
+You walk out of the house, not knowing where to go, but one of the knights tells you to go farther up the road to reach the potion shop");
+Thread.Sleep(5000);
+Console.Clear();
+Console.WriteLine(@"
+___________________________________________________________________________________________________________________________________
+|                                                                                                                                  |
+|                                                                                                                                  |
+|                                 /\                                                                                               |
+|                                /  \                                                                                              |
+|                               /    \                                                                                             |
+|                              /      \                                                                                            |
+|                             /        \                                                                                           |
+|                            /          \                                                                                          |
+|                           /|          |\                                                                                         |
+|                            |   ____   |                                                                                          |
+|                            |   |  |   |                                                                                          |
+|                            |___|__|___|                                                                                          |
+|                                |  |                                                                                              |
+|                                \  \                                                                                              |
+|                                 \  \_____________________                                                                        |
+|                                  |____________________  |                                                                        |      
+|_______________________________________________________|_|________________________________________________________________________|
+
+You walk up the path and see the potion shop in the distance 
+");
+Thread.Sleep(5000);
+Console.Clear();
+Console.WriteLine("The knight gives you 3 gold coins and tells you to buy some potions");
+int gold = 3;
+int sp = 0;
+int hp = 0;
+int dp = 0;
+int pp = 0;
+int wp = 0;
+Thread.Sleep(2300);
+Console.Clear();
+do {
+    Console.Clear();
+    Console.WriteLine($@"
+   ______________________________________________________
+   |                                                 ${gold}  |
+   |                                                    |
+   |   1: strength potion      2: health potion         |
+   |                                                    |
+   |   3: defence potion       4: posion potion         |   
+   |                                                    | 
+   |   5: weakness potion      6: potion info           | 
+   |                                                    |
+   |                type an action                      |              
+   |____________________________________________________| ");
+
+   string act = Console.ReadLine();
+   if (act == "1") {
+       if (sp == 0) {   
+           Console.Clear();
+           Console.WriteLine("Are you sure you want to buy a strength potion? [y/n]");
+           string act2 = Console.ReadLine();
+           if (act2 == "y") {
+               sp = 1;
+               gold--;
+           } else {
+
+           }
+
+       } else {
+           Console.Clear();
+           Console.WriteLine("You've already bought this");
+           Thread.Sleep(3000);
+       }
+   } else if (act == "2") {
+       if (hp == 0) {   
+           Console.Clear();
+           Console.WriteLine("Are you sure you want to buy a health potion? [y/n]");
+           string act3 = Console.ReadLine();
+           if (act3 == "y") {
+               hp = 1;
+               gold--;
+           } else {
+
+           }
+
+       } else {
+           Console.Clear();
+           Console.WriteLine("You've already bought this");
+           Thread.Sleep(3000);
+       }
+   } else if (act == "3") {
+       if (dp == 0) {   
+           Console.Clear();
+           Console.WriteLine("Are you sure you want to buy a defence potion? [y/n]");
+           string act2 = Console.ReadLine();
+           if (act2 == "y") {
+               dp = 1;
+               gold--;
+           } else {
+
+           }
+
+       } else {
+           Console.Clear();
+           Console.WriteLine("You've already bought this");
+           Thread.Sleep(3000);
+       }
+   } else if (act == "4") {
+       if (pp == 0) {   
+           Console.Clear();
+           Console.WriteLine("Are you sure you want to buy a poison potion? [y/n]");
+           string act2 = Console.ReadLine();
+           if (act2 == "y") {
+               pp = 1;
+               gold--;
+           } else {
+
+           }
+
+       } else {
+           Console.Clear();
+           Console.WriteLine("You've already bought this");
+           Thread.Sleep(3000);
+       }
+   } else if (act == "5") {
+       if (wp == 0) {   
+           Console.Clear();
+           Console.WriteLine("Are you sure you want to buy a weakness potion? [y/n]");
+           string act2 = Console.ReadLine();
+           if (act2 == "y") {
+               wp = 1;
+               gold--;
+           } else {
+
+           }
+
+       } else {
+           Console.Clear();
+           Console.WriteLine("You've already bought this");
+           Thread.Sleep(3000);
+       }
+   } else {
+       Console.Clear();
+       Console.WriteLine(@"
+       Strength potion: lets you do 20 more damage per hit
+       Health potion: heals 50 hp instantly
+       Defence potion: lets you take 20 less damage from each attack
+       Poison potion: takes 20 damage from enemy for 3 rounds
+       Weakness potion: Makes your enemy take %20 more damage from your attacks
+       
+       Go back(1)");
+       string aposifjpaodsifjposdij = Console.ReadLine();
+   }
+} while (gold > 0);
+d12(sp, hp, dp, pp, wp);
+ } static void d12(int sp0, int hp0, int dp0, int pp0, int wp0) {
+
+ }
+
  }
  } 
    }
-   }
+   
 
