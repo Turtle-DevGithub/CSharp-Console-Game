@@ -595,7 +595,7 @@ d10_1();
          Leave Cave(1)");
      } else {
          Console.WriteLine(@"
-__     __               _ _          _       
+ __     __               _ _          _       
  \ \   / /              | (_)        | |      
   \ \_/ /__  _   _    __| |_  ___  __| |      
    \   / _ \| | | |  / _` | |/ _ \/ _` |      
@@ -800,7 +800,9 @@ do {
        Health potion: heals 50 hp instantly
        Defence potion: lets you take 20 less damage from each attack
        Poison potion: takes 20 damage from enemy for 3 rounds
-       Weakness potion: Makes your enemy take %20 more damage from your attacks
+       Weakness potion: Makes your enemy take %80 more damage from your attacks
+
+       All potion effects(other than poison) automatically apply
        
        Go back(1)");
        string aposifjpaodsifjposdij = Console.ReadLine();
@@ -808,11 +810,658 @@ do {
 } while (gold > 0);
 d12(sp, hp, dp, pp, wp);
  } static void d12(int sp0, int hp0, int dp0, int pp0, int wp0) {
+     bool sp;
+     bool hp;
+     bool dp;
+     int pp;
+     bool ppact; 
+     bool wp;
 
- }
+     
+     int health = 100;
+     int enemyhealth = 400;
+     int dmg = 1;
+     int g1 = 50;
+     int g2 = 50;
+     int g3 = 50;
+     int g4 = 50;
+     int user = 1;
 
- }
+     if (sp0 == 1) {sp = true;} else {sp = false;}
+     if (hp0 == 1) {hp = true;} else {hp = false;}
+     if (dp0 == 1) {dp = true;} else {dp = false;}
+     if (wp0 == 1) {wp = true;} else {wp = false;}
+     if (pp0 == 1) {pp = 3; ppact = false;} else {pp = 0; ppact = false;}
+
+     if (sp == true && wp == true) { dmg = (20 + 20) + 32;} // total damage is 72(highest possible damage)
+     if (sp == true && wp == false) { dmg = 20 + 20;} // total damage is 40
+     if (sp == false && wp == true) { dmg = 20 + 16;}// total damage is 36
+     if (sp == false && wp == false) { dmg = 20;}// total damage is 20
+
+     Console.Clear();
+     Console.WriteLine("You finished buying potions and left the hut");
+     Thread.Sleep(2300);
+     Console.Clear();
+     Console.WriteLine(@"
+___________________________________________________________________________________________________________________________________
+|                                                                                                                                  |
+|                                                                                                                                  |
+|                                 /\                                                                                               |
+|                                /  \                                                                                              |
+|                               /    \                                                                                             |
+|                              /      \                                                                                            |
+|                             /        \                                                                                           |
+|                            /          \                                                                                          |
+|                           /|          |\                                                                                         |
+|                            |   ____   |                                                                                          |
+|                            |   |  |   |                                                                                          |
+|                            |___|__|___|                                                                                          |
+|                                |  |                                                                                              |
+|                                 \  \                                                                                             |
+|                                  \  \_____________________                                                                       |
+|                                   |____________________  |                                                                       |      
+|________________________________________________________|_|_______________________________________________________________________|
+
+You where told by one of your knights that the rulers castle is up ahead
+     ");
+     Thread.Sleep(5000);
+     Console.Clear();
+     Console.WriteLine("You slowly walk forward with your sword and sheild in hand, and your new potions on your belt");
+     Thread.Sleep(4000);
+     Console.Clear();
+     Console.WriteLine(@"
+___________________________________________________________________________________________________________________________________
+|                                    /             \                                                                               |
+|                                   /               \                                                                              |
+|                                  /  +           +  \                                                                             |
+|                              /\  |                 |  /\                                                                         |
+|                             /  \ |     _______     | /  \                                                                        |
+|                             |  | |    |   |   |    | |  |                                                                        |
+|                             |  | |    |   |   |    | |  |                                                                        |
+|                             |__|_|____|___|___|____|_|__|                                                                        |
+|                                                                                                                                  |
+|                                                                                                                                  |
+|                                                                                                                                  |
+|                                                                                                                                  |
+|                                                                                                                                  |
+|                                                                                                                                  |
+|                                                                                                                                  |
+|                                                                                                                                  |      
+|__________________________________________________________________________________________________________________________________|
+     ");
+     Thread.Sleep(5000);
+     Console.Clear();
+     Console.WriteLine("Before you enter the castle, you must know a couple of things. You can switch between controlling each indivisual gaurd(of which you have four) and using your personal attacks");
+     Thread.Sleep(3000);
+     Console.WriteLine("All potion effects are automattically applied to you(exept poison) You are the only one who can use these effects, your gaurds cannot");
+     Thread.Sleep(4000);
+     Console.Clear();
+     Console.WriteLine("You walk into the castle and are greeted by the currnet king");
+     Thread.Sleep(2300);
+     Console.WriteLine("Oh I see, you have finaly come here");
+     Thread.Sleep(2300);
+     Console.WriteLine("It has been far too long since I had last seen you");
+     Thread.Sleep(3000);
+     Console.WriteLine("Well, you're nothing but a minor setback to my plan of ruling the world, so I will finally get rid of you! once and for all!");
+     Thread.Sleep(4000);
+     do {
+     Console.Clear();
+     if (user == 1) {
+Console.WriteLine($@"
+    ____________________________________________________
+   |  hp({health}/100)         king hp({enemyhealth}/400)             |
+   |                                                    |
+   |           ___                                      |
+   |          ('-')              (`-`)                  |
+   |          --|--              --|--                  |   
+   |            |                  |                    | 
+   |___________/_\________________/_\___________________| 
+   |                       Moves:                       |
+   |          1.Attack     2.Switch Character           |              
+   |___________________3.potion_info____________________| 
+	");
+string act = Console.ReadLine();
+    if (act == "1") {
+        Console.Clear();
+        Console.WriteLine("You did " + dmg + " damage to the king!");
+	if (ppact == true && pp > 0) 
+	{
+		pp--;
+		Console.WriteLine("You also poisoned the king! dealing 30 damage " + pp + "Poison left");
+
+		enemyhealth -= 30;
+		if (pp < 0) {ppact = false;
+		Console.WriteLine("You don't have any poison left");} 
+		
+	} 
+        enemyhealth -= dmg;
+        Thread.Sleep(3000);
+        if (dp == true) {
+          Console.Clear();
+          Console.WriteLine("The king did 50 damage! but your potion helped you resist 20 damage! it dropped the total to 30 damage");
+          health -= 30; 
+	  Thread.Sleep(3000); 
+        } else {
+            Console.Clear();
+            Console.WriteLine("The king did 50 damage to you!");
+            health -= 50;
+	    Thread.Sleep(3000);
+        } 
+        
+        } else if (act == "2") {
+            Console.Clear();
+            Console.WriteLine(@$"
+   ______________________________________________________
+   |              Choose a character                    |
+   |                                                    |
+   |                                                    |
+   |   1: Player             Health: {health}/100          |
+   |                                                    |
+   |   2: Knight 1           Health: {g1}/50            |   
+   |                                                    | 
+   |   3: Knight 2           Health: {g2}/50            |
+   |                                                    | 
+   |   4: Knight 3           Health: {g3}/50            | 
+   |                                                    |
+   |   5: Knight 4           Health: {g4}/50            | 
+   |____________________________________________________| 
+            ");
+	    string act2 = Console.ReadLine();
+	    if (act2 == "1") {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 1;
+	    } else if (act2 == "2" && g1 > 0) {	 
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 2;
+	    } else if (act2 == "2" && g1 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        } else if (act2 == "3" && g2 > 0) {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 3;
+	    } else if (act2 == "3" && g2 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        } else if (act2 == "4" && g3 > 0) {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 4;
+	    } else if (act2 == "4" && g3 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        } else if (act2 == "5" && g4 > 0) {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 5;
+	    } else if (act2 == "5" && g4 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        }
+    } else {
+	Console.Clear();
+        if (sp == true) {Console.WriteLine("You have a strength potion in use");}
+        if (hp == true) {Console.WriteLine("You have a health potion in use");}
+        if (dp == true) {Console.WriteLine("You have a defence potion in play");}
+        if (wp == true) {Console.WriteLine("You have a weakness potion in play");}
+	if (pp == 0) {
+	Console.WriteLine("Go back(1)");
+	string aspdoifjapsoidfjadpofijapsodifj = Console.ReadLine();
+
+	
+	} else {
+		Console.WriteLine("You have a poison potion, do you want to activate it?[y/n]");}
+		string ppq = Console.ReadLine();
+		if (ppq == "y") {Console.Clear(); ppact = true; Console.WriteLine("Set poison potion to true, returning to batle"); Thread.Sleep(3000);} else {
+		Console.WriteLine("Did not enable poison potion, returning to battle");}
+
+
+
+        
+    }
+
+
+     } else if (user == 2) {
+         Console.WriteLine($@"
+    ____________________________________________________
+   |  hp({g1}/50)         king hp({enemyhealth}/400)         |
+   |                                                    |
+   |                                                    |
+   |          ('-')              (`-`)                  |
+   |                             --|--                  |   
+   |                               |                    | 
+   |______________________________/_\___________________| 
+   |                       Moves:                       |
+   |          1.Attack     2.Switch Character           |              
+   |___________________3.potion_info____________________| 
+	");
+string act = Console.ReadLine();
+    if (act == "1") {
+        Console.Clear();
+        Console.WriteLine("You did 50 damage to the king!");
+        enemyhealth -= 50;
+        Thread.Sleep(3000);
+        if (dp == true) {
+          Console.Clear();
+          Console.WriteLine("The king did 50 damage...");
+          g1 -= 50; 
+	  Thread.Sleep(3000); 
+        } 
+        
+        } else if (act == "2") {
+            Console.Clear();
+            Console.WriteLine(@$"
+   ______________________________________________________
+   |              Choose a character                    |
+   |                                                    |
+   |                                                    |
+   |   1: Player             Health: {health}/100          |
+   |                                                    |
+   |   2: Knight 1           Health: {g1}/50            |   
+   |                                                    | 
+   |   3: Knight 2           Health: {g2}/50            |
+   |                                                    | 
+   |   4: Knight 3           Health: {g3}/50            | 
+   |                                                    |
+   |   5: Knight 4           Health: {g4}/50            | 
+   |____________________________________________________| 
+            ");
+	    string act2 = Console.ReadLine();
+	    if (act2 == "1") {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 1;
+	    } else if (act2 == "2" && g1 > 0) {	 
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 2;
+	    } else if (act2 == "2" && g1 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        } else if (act2 == "3" && g2 > 0) {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 3;
+	    } else if (act2 == "3" && g2 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        } else if (act2 == "4" && g3 > 0) {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 4;
+	    } else if (act2 == "4" && g3 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        } else if (act2 == "5" && g4 > 0) {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 5;
+	    } else if (act2 == "5" && g4 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        }
+    } else {
+	Console.Clear();
+        if (sp == true) {Console.WriteLine("You have a strength potion in use");}
+        if (hp == true) {Console.WriteLine("You have a health potion in use");}
+        if (dp == true) {Console.WriteLine("You have a defence potion in play");}
+        if (wp == true) {Console.WriteLine("You have a weakness potion in play");}
+     }
+     
+    
+        
+     } else if (user == 3) {
+         Console.WriteLine($@"
+    ____________________________________________________
+   |  hp({g2}/50)         king hp({enemyhealth}/400)         |
+   |                                                    |
+   |                                                    |
+   |          ('-')              (`-`)                  |
+   |                             --|--                  |   
+   |                               |                    | 
+   |______________________________/_\___________________| 
+   |                       Moves:                       |
+   |          1.Attack     2.Switch Character           |              
+   |___________________3.potion_info____________________| 
+	");
+string act = Console.ReadLine();
+    if (act == "1") {
+        Console.Clear();
+        Console.WriteLine("You did 50 damage to the king!");
+        enemyhealth -= 50;
+        Thread.Sleep(3000);
+        if (dp == true) {
+          Console.Clear();
+          Console.WriteLine("The king did 50 damage...");
+          g2 -= 50; 
+	  Thread.Sleep(3000); 
+        } 
+        
+        } else if (act == "2") {
+            Console.Clear();
+            Console.WriteLine(@$"
+   ______________________________________________________
+   |              Choose a character                    |
+   |                                                    |
+   |                                                    |
+   |   1: Player             Health: {health}/100          |
+   |                                                    |
+   |   2: Knight 1           Health: {g1}/50            |   
+   |                                                    | 
+   |   3: Knight 2           Health: {g2}/50            |
+   |                                                    | 
+   |   4: Knight 3           Health: {g3}/50            | 
+   |                                                    |
+   |   5: Knight 4           Health: {g4}/50            | 
+   |____________________________________________________| 
+            ");
+	    string act2 = Console.ReadLine();
+	    if (act2 == "1") {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 1;
+	    } else if (act2 == "2" && g1 > 0) {	 
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 2;
+	    } else if (act2 == "2" && g1 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        } else if (act2 == "3" && g2 > 0) {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 3;
+	    } else if (act2 == "3" && g2 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        } else if (act2 == "4" && g3 > 0) {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 4;
+	    } else if (act2 == "4" && g3 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        } else if (act2 == "5" && g4 > 0) {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 5;
+	    } else if (act2 == "5" && g4 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        }
+    } else {
+	Console.Clear();
+        if (sp == true) {Console.WriteLine("You have a strength potion in use");}
+        if (hp == true) {Console.WriteLine("You have a health potion in use");}
+        if (dp == true) {Console.WriteLine("You have a defence potion in play");}
+        if (wp == true) {Console.WriteLine("You have a weakness potion in play");}
+     }
+     
+    
+        
+     } else if (user == 4) {
+            Console.WriteLine($@"
+    ____________________________________________________
+   |  hp({g3}/50)         king hp({enemyhealth}/400)         |
+   |                                                    |
+   |                                                    |
+   |          ('-')              (`-`)                  |
+   |                             --|--                  |   
+   |                               |                    | 
+   |______________________________/_\___________________| 
+   |                       Moves:                       |
+   |          1.Attack     2.Switch Character           |              
+   |___________________3.potion_info____________________| 
+	");
+string act = Console.ReadLine();
+    if (act == "1") {
+        Console.Clear();
+        Console.WriteLine("You did 50 damage to the king!");
+        enemyhealth -= 50;
+        Thread.Sleep(3000);
+        if (dp == true) {
+          Console.Clear();
+          Console.WriteLine("The king did 50 damage...");
+          g3 -= 50; 
+	  Thread.Sleep(3000); 
+        } 
+        
+        } else if (act == "2") {
+            Console.Clear();
+            Console.WriteLine(@$"
+   ______________________________________________________
+   |              Choose a character                    |
+   |                                                    |
+   |                                                    |
+   |   1: Player             Health: {health}/100          |
+   |                                                    |
+   |   2: Knight 1           Health: {g1}/50            |   
+   |                                                    | 
+   |   3: Knight 2           Health: {g2}/50            |
+   |                                                    | 
+   |   4: Knight 3           Health: {g3}/50            | 
+   |                                                    |
+   |   5: Knight 4           Health: {g4}/50            | 
+   |____________________________________________________| 
+            ");
+	    string act2 = Console.ReadLine();
+	    if (act2 == "1") {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 1;
+	    } else if (act2 == "2" && g1 > 0) {	 
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 2;
+	    } else if (act2 == "2" && g1 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        } else if (act2 == "3" && g2 > 0) {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 3;
+	    } else if (act2 == "3" && g2 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        } else if (act2 == "4" && g3 > 0) {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 4;
+	    } else if (act2 == "4" && g3 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        } else if (act2 == "5" && g4 > 0) {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 5;
+	    } else if (act2 == "5" && g4 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        }
+    } else {
+	Console.Clear();
+        if (sp == true) {Console.WriteLine("You have a strength potion in use");}
+        if (hp == true) {Console.WriteLine("You have a health potion in use");}
+        if (dp == true) {Console.WriteLine("You have a defence potion in play");}
+        if (wp == true) {Console.WriteLine("You have a weakness potion in play");}
+     }
+     } else if (user == 5){
+            Console.WriteLine($@"
+    ____________________________________________________
+   |  hp({g4}/50)         king hp({enemyhealth}/400)         |
+   |                                                    |
+   |                                                    |
+   |          ('-')              (`-`)                  |
+   |                             --|--                  |   
+   |                               |                    | 
+   |______________________________/_\___________________| 
+   |                       Moves:                       |
+   |          1.Attack     2.Switch Character           |              
+   |___________________3.potion_info____________________| 
+	");
+string act = Console.ReadLine();
+    if (act == "1") {
+        Console.Clear();
+        Console.WriteLine("You did 50 damage to the king!");
+        enemyhealth -= 50;
+        Thread.Sleep(3000);
+        if (dp == true) {
+          Console.Clear();
+          Console.WriteLine("The king did 50 damage...");
+          g4 -= 50; 
+	  Thread.Sleep(3000); 
+        } 
+        
+        } else if (act == "2") {
+            Console.Clear();
+            Console.WriteLine(@$"
+   ______________________________________________________
+   |              Choose a character                    |
+   |                                                    |
+   |                                                    |
+   |   1: Player             Health: {health}/100          |
+   |                                                    |
+   |   2: Knight 1           Health: {g1}/50            |   
+   |                                                    | 
+   |   3: Knight 2           Health: {g2}/50            |
+   |                                                    | 
+   |   4: Knight 3           Health: {g3}/50            | 
+   |                                                    |
+   |   5: Knight 4           Health: {g4}/50            | 
+   |____________________________________________________| 
+            ");
+	    string act2 = Console.ReadLine();
+	    if (act2 == "1") {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 1;
+	    } else if (act2 == "2" && g1 > 0) {	 
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 2;
+	    } else if (act2 == "2" && g1 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        } else if (act2 == "3" && g2 > 0) {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 3;
+	    } else if (act2 == "3" && g2 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        } else if (act2 == "4" && g3 > 0) {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 4;
+	    } else if (act2 == "4" && g3 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        } else if (act2 == "5" && g4 > 0) {
+	    Console.Clear();    
+	    Console.WriteLine("Changing character...");
+	    Thread.Sleep(2300);
+	    user = 5;
+	    } else if (act2 == "5" && g4 == 0) {
+        Console.Clear();    
+        Console.WriteLine("He's dead...");
+        Thread.Sleep(2000);    
+        }
+    } else {
+	Console.Clear();
+        if (sp == true) {Console.WriteLine("You have a strength potion in use");}
+        if (hp == true) {Console.WriteLine("You have a health potion in use");}
+        if (dp == true) {Console.WriteLine("You have a defence potion in play");}
+        if (wp == true) {Console.WriteLine("You have a weakness potion in play");}
+     }
+     }
+     if (user == 2 && g1 == 0) {Console.WriteLine("Your active character died!");
+     Console.WriteLine("Changing character..."); 
+     Thread.Sleep(2300);
+     user = 1;}
+     if (user == 3 && g2 == 0) {Console.WriteLine("Your active character died!");
+     Console.WriteLine("Changing character..."); 
+     Thread.Sleep(2300);
+     user = 1;}
+     if (user == 4 && g3 == 0) {Console.WriteLine("Your active character died!");
+     Console.WriteLine("Changing character..."); 
+     Thread.Sleep(2300);
+     user = 1;} 
+     if (user == 5 && g4 == 0) {Console.WriteLine("Your active character died!");
+     Console.WriteLine("Changing character..."); 
+     Thread.Sleep(2300);
+     user = 1;} 
+         
+     } while (health > 0 && enemyhealth > 0);
+     if (health <= 0) {
+         Console.Clear();
+         Console.WriteLine(@$"
+ __     __               _ _          _       
+ \ \   / /              | (_)        | |      
+  \ \_/ /__  _   _    __| |_  ___  __| |      
+   \   / _ \| | | |  / _` | |/ _ \/ _` |      
+    | | (_) | |_| | | (_| | |  __/ (_| |_ _ _ 
+    |_|\___/ \__,_|  \__,_|_|\___|\__,_(_|_|_)
+
+    Imagine dying 
+
+    Try Again(1)
+
+         ");
+         string apoifjapsoidfjapoisdjfpaosijdfpaoisjdfpaosidjf = Console.ReadLine();
+         d11();
+     } else if (enemyhealth <= 0 ) {
+         Finale();
+     }
+     } static void Finale() {
+
+     }
  } 
    }
-   
+}
+  
 
