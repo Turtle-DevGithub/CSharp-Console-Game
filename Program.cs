@@ -1458,7 +1458,19 @@ string act = Console.ReadLine();
          Finale();
      }
      } static void Finale() {
-
+         Console.Clear();
+         Console.WriteLine("So you beat him, the finnal enemy, you hear him cry out in defeat");
+         Thread.Sleep(2300);
+         Console.WriteLine("You are made ruler of the land, and you give everyone their rights");
+         Thread.Sleep(3000);
+         Console.WriteLine("Well, this is it, you beat the game, congratulations");
+         Console.Clear();
+         Console.WriteLine(@"
+         The end
+         
+         Made by:
+         
+         TurtleDevGithub(on github)");
      }
  } 
    }
